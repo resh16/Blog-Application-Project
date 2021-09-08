@@ -37,6 +37,15 @@ namespace BlogPageProject
             
             
             services.AddTransient<IBlogRepository, BlogRepository>();
+
+            services.AddCors( option =>
+            {
+                option.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+               
+            });
            
             
             services.AddSwaggerGen(c =>
@@ -58,6 +67,8 @@ namespace BlogPageProject
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
