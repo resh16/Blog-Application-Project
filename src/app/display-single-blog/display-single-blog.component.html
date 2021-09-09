@@ -1,0 +1,33 @@
+<div style="width: 500px; margin: auto;">
+    <div *ngIf="currentBlog" class="edit-form">
+      <h4>Blog</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            [(ngModel)]="currentBlog.title"
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="content">Content</label>
+          <input
+            type="text"
+            class="form-control"
+            id="content"
+            [(ngModel)]="currentBlog.description"
+            name="content"
+          />
+        </div>
+  
+      </form>
+  
+      <button type="button" class="btn btn-danger" (click)="updateBlog()" >Update</button>
+      <button type="button" class="btn btn-warning" (click)="deleteBlog()">Delete</button>
+
+    </div>
+  
+  </div>
